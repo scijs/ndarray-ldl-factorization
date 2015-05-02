@@ -76,10 +76,8 @@ $ node ./examples/index.js
 Unit tests use the [Mocha](http://mochajs.org/) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
-$ make test
+$ npm test
 ```
-
-All new feature development should have corresponding unit tests to validate correct functionality.
 
 ---
 ## License
