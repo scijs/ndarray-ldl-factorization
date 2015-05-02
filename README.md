@@ -1,7 +1,7 @@
 ndarray-ldl-decomposition
 ===
-[![NPM version][npm-image]][npm-url] 
-[![Build Status][travis-image]][travis-url] 
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
 [![Dependencies][dependencies-image]][dependencies-url]
 
 > LDL Decomposition for ndarrays
@@ -30,7 +30,7 @@ This function calculates the LDL decomposition of matrix `A = LDL^t`, where `L` 
 ``` javascript
 var ndarray = require('ndarray'),
 	show = require('ndarray-show'),
-	ldl = require( './../lib' ),
+	ldl = require( 'ndarray-ldl-factorization' ),
 	pool = require('ndarray-scratch');
 
 var A = ndarray(new Float64Array([9,-1,2,-1,8,-5,2,-5,7]), [3,3]);
@@ -44,7 +44,7 @@ console.log( 'A:\n' + show(A), '\n' );
 /*  
    9.000   -1.000    2.000
   -1.000    8.000   -5.000
-   2.000   -5.000    7.000 
+   2.000   -5.000    7.000
 /*
 
 console.log( 'L:\n' + show(L) );
