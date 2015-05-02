@@ -1,6 +1,8 @@
 ndarray-ldl-decomposition
 ===
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] 
+[![Build Status][travis-image]][travis-url] 
+[![Dependencies][dependencies-image]][dependencies-url]
 
 > LDL Decomposition for ndarrays
 
@@ -19,10 +21,9 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 var ldl = require( 'ndarray-ldl-factorization' );
 ```
 
-#### ldl(A)
+#### ldl(A, L, d)
 
-What does this function do?
-
+This function calculates the LDL decomposition of matrix `A = LDL^t`, where `L` is a lower-unit triangular matrix and `D` is a diagonal matrix. Consult the book "Matrix computations" (3rd ed.) by Gene H. Golub and Charles F. Van Loan for further information. The function takes `L` and `d`, the vector of diagonal elements of `D`, as arguments and changes them during execution. If the function completes without error, it returns `true`, otherwise `false`.
 
 ## Examples
 
@@ -40,9 +41,25 @@ ldl(A, L, d);
 
 console.log( 'A:\n' + show(A), '\n' );
 
+/*  
+   9.000   -1.000    2.000
+  -1.000    8.000   -5.000
+   2.000   -5.000    7.000 
+/*
+
 console.log( 'L:\n' + show(L) );
 
+/*
+   1.000   -0.111    0.222
+   0.000    1.000   -0.606
+   0.000    0.000    1.000
+*/
+
 console.log( 'd:\n' + show(d) );
+
+/*
+ 9.000    7.889    3.662
+*/
 
 ```
 
@@ -77,8 +94,8 @@ Copyright &copy; 2015. Philipp Burckhardt.
 [npm-image]: http://img.shields.io/npm/v/ndarray-ldl-factorization.svg
 [npm-url]: https://npmjs.org/package/ndarray-ldl-factorization
 
-[travis-image]: http://img.shields.io/travis/https://github.com/scijs/ndarray-ldl-factorization.git/master.svg
-[travis-url]: https://travis-ci.org/https://github.com/scijs/ndarray-ldl-factorization.git
+[travis-image]:  https://travis-ci.org/scijs/ndarray-ldl-factorization
+[travis-url]:  https://travis-ci.org/scijs/ndarray-ldl-factorization
 
-[dependencies-image]: http://img.shields.io/david/https://github.com/scijs/ndarray-ldl-factorization.git.svg
-[dependencies-url]: https://david-dm.org/https://github.com/scijs/ndarray-ldl-factorization.git
+[dependencies-image]:http://img.shields.io/david/scijs/ndarray-ldl-factorization.svg
+[dependencies-url]: https://david-dm.org/scijs/ndarray-ldl-factorization
