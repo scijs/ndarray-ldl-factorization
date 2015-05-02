@@ -1,6 +1,6 @@
 {
   "name": "ndarray-ldl-factorization",
-  "version": "1.0.3",
+  "version": "1.0.2",
   "description": "LDL Decomposition for ndarrays",
   "author": {
     "name": "Philipp Burckhardt",
@@ -18,7 +18,7 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "https://github.com/scijs/ndarray-ldl-factorization.git"
+    "url": "git+https://github.com/scijs/ndarray-ldl-factorization.git"
   },
   "keywords": [
     "ndarray",
