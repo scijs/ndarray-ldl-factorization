@@ -92,7 +92,7 @@ Copyright &copy; 2015. Philipp Burckhardt.
 [npm-image]: http://img.shields.io/npm/v/ndarray-ldl-factorization.svg
 [npm-url]: https://npmjs.org/package/ndarray-ldl-factorization
 
-[travis-image]:  https://travis-ci.org/scijs/ndarray-ldl-factorization
+[travis-image]:  https://travis-ci.org/scijs/ndarray-ldl-factorization.svg
 [travis-url]:  https://travis-ci.org/scijs/ndarray-ldl-factorization
 
 [dependencies-image]:http://img.shields.io/david/scijs/ndarray-ldl-factorization.svg
