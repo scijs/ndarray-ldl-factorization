@@ -1,6 +1,6 @@
 {
   "name": "ndarray-ldl-factorization",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "LDL Decomposition for ndarrays",
   "author": {
     "name": "Philipp Burckhardt",
