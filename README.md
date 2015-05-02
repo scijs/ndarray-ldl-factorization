@@ -4,11 +4,10 @@ ndarray-ldl-decomposition
 
 > LDL Decomposition for ndarrays
 
-
 ## Installation
 
 ``` bash
-$ npm install ndarray-ldl-decomposition
+$ npm install ndarray-ldl-factorization
 ```
 
 For use in the browser, use [browserify](https://github.com/substack/node-browserify).
@@ -17,10 +16,10 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 ## Usage
 
 ``` javascript
-var foo = require( 'ndarray-ldl-decomposition' );
+var ldl = require( 'ndarray-ldl-factorization' );
 ```
 
-#### foo()
+#### ldl(A)
 
 What does this function do?
 
@@ -28,7 +27,23 @@ What does this function do?
 ## Examples
 
 ``` javascript
-var foo = require( 'ndarray-ldl-decomposition' );
+var ndarray = require('ndarray'),
+	show = require('ndarray-show'),
+	ldl = require( './../lib' ),
+	pool = require('ndarray-scratch');
+
+var A = ndarray(new Float64Array([9,-1,2,-1,8,-5,2,-5,7]), [3,3]);
+var L = pool.zeros( A.shape, A.dtype );
+var d = pool.zeros( [ A.shape[0] ], A.dtype);
+
+ldl(A, L, d);
+
+console.log( 'A:\n' + show(A), '\n' );
+
+console.log( 'L:\n' + show(L) );
+
+console.log( 'd:\n' + show(d) );
+
 ```
 
 To run the example code from the top-level application directory,
@@ -36,7 +51,6 @@ To run the example code from the top-level application directory,
 ``` bash
 $ node ./examples/index.js
 ```
-
 
 ## Tests
 
@@ -50,47 +64,21 @@ $ make test
 
 All new feature development should have corresponding unit tests to validate correct functionality.
 
-
-### Test Coverage
-
-This repository uses [Istanbul](https://github.com/gotwarlost/istanbul) as its code coverage tool. To generate a test coverage report, execute the following command in the top-level application directory:
-
-``` bash
-$ make test-cov
-```
-
-Istanbul creates a `./reports/coverage` directory. To access an HTML version of the report,
-
-``` bash
-$ make view-cov
-```
-
-
 ---
 ## License
 
-[MIT license](http://opensource.org/licenses/MIT). 
+[MIT license](http://opensource.org/licenses/MIT).
 
 
 ## Copyright
 
 Copyright &copy; 2015. Philipp Burckhardt.
 
+[npm-image]: http://img.shields.io/npm/v/ndarray-ldl-factorization.svg
+[npm-url]: https://npmjs.org/package/ndarray-ldl-factorization
 
-[npm-image]: http://img.shields.io/npm/v/ndarray-ldl-decomposition.svg
-[npm-url]: https://npmjs.org/package/ndarray-ldl-decomposition
+[travis-image]: http://img.shields.io/travis/https://github.com/scijs/ndarray-ldl-factorization.git/master.svg
+[travis-url]: https://travis-ci.org/https://github.com/scijs/ndarray-ldl-factorization.git
 
-[travis-image]: http://img.shields.io/travis/https://github.com/scijs/ndarray-ldl-decomposition.git/master.svg
-[travis-url]: https://travis-ci.org/https://github.com/scijs/ndarray-ldl-decomposition.git
-
-[coveralls-image]: https://img.shields.io/coveralls/https://github.com/scijs/ndarray-ldl-decomposition.git/master.svg
-[coveralls-url]: https://coveralls.io/r/https://github.com/scijs/ndarray-ldl-decomposition.git?branch=master
-
-[dependencies-image]: http://img.shields.io/david/https://github.com/scijs/ndarray-ldl-decomposition.git.svg
-[dependencies-url]: https://david-dm.org/https://github.com/scijs/ndarray-ldl-decomposition.git
-
-[dev-dependencies-image]: http://img.shields.io/david/dev/https://github.com/scijs/ndarray-ldl-decomposition.git.svg
-[dev-dependencies-url]: https://david-dm.org/dev/https://github.com/scijs/ndarray-ldl-decomposition.git
-
-[github-issues-image]: http://img.shields.io/github/issues/https://github.com/scijs/ndarray-ldl-decomposition.git.svg
-[github-issues-url]: https://github.com/https://github.com/scijs/ndarray-ldl-decomposition.git/issues
+[dependencies-image]: http://img.shields.io/david/https://github.com/scijs/ndarray-ldl-factorization.git.svg
+[dependencies-url]: https://david-dm.org/https://github.com/scijs/ndarray-ldl-factorization.git
