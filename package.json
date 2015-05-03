@@ -13,7 +13,7 @@
     }
   ],
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/browserify -t coverify test/test.js --bare | node | ./node_modules/.bin/coverify"
   },
   "main": "./lib",
   "repository": {
@@ -39,8 +39,9 @@
     "ndgemm": "0.0.0"
   },
   "devDependencies": {
-    "chai": "2.x.x",
-    "mocha": "2.x.x"
+    "browserify": "^10.0.0",
+    "coverify": "^1.1.0",
+    "tape": "^4.0.0"
   },
   "licenses": [
     {

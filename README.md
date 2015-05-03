@@ -1,4 +1,4 @@
-ndarray-ldl-decomposition
+ndarray-ldl-factorization
 ===
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
@@ -73,7 +73,7 @@ $ node ./examples/index.js
 
 ### Unit
 
-Unit tests use the [Mocha](http://mochajs.org/) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Tape](https://github.com/substack/tape) test framework. To calculate code coverage, the package makes use of [Coverify](https://github.com/substack/coverify).To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ npm test
