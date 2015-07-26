@@ -17,7 +17,7 @@
     }
   ],
   "scripts": {
-    "test": "node test/test.js | tap-spec"
+    "test": "./node_modules/.bin/browserify -t coverify test/test.js --bare | node | ./node_modules/.bin/coverify"
   },
   "main": "./lib",
   "repository": {

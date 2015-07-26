@@ -10,7 +10,7 @@ var ndarray = require('ndarray')
 	, test = require( 'tape' )
 	, ldl = require( '../lib' )
 
-//test.createStream().pipe(require('tap-spec')()).pipe(process.stdout)
+test.createStream().pipe(require('tap-spec')()).pipe(process.stdout)
 
 // VARIABLES //
 
@@ -31,10 +31,14 @@ test( 'should calculate the LDL decomposition of matrix A', function test(t) {
 	var L = pool.zeros( A.shape, A.dtype )
 	var d = pool.zeros( [ A.shape[0] ], A.dtype)
 
+	// Just in case. Let's double-check that everything is set:
 	ops.assigns(L,NaN)
 
 	var isTrue = ldl(A, L, d)
 	t.assert(isTrue, 'ldl returns true')
+	console.log('L=\n',show(L))
+	console.log('A=\n',show(A))
+	console.log('d=',show(d))
 
 	var LExpected = ndarray(new Float64Array([1,0,0,-0.111,1,0,0.222,-0.606,1]), [3,3])
 	t.assert( ndt.approximatelyEqual(L, LExpected, 1e-3), 'L is correctly calculated' )
@@ -42,7 +46,25 @@ test( 'should calculate the LDL decomposition of matrix A', function test(t) {
 	var d_expected = ndarray(new Float64Array([9, 7.889, 3.662]), [3])
 	t.assert( ndt.approximatelyEqual(d, d_expected, 1e-3), 'elements of D are correctly calculated' )
 	t.end()
-} )
+})
+
+test( 'should calculate the in-place LDL decomposition of matrix A', function test(t) {
+
+	var A = ndarray(new Float64Array([9,-1,2,-1,8,-5,2,-5,7]), [3,3])
+	var d = pool.zeros( [ A.shape[0] ], A.dtype)
+
+	t.assert( ldl(A, A, d), 'ldl returns true')
+	console.log('A=\n',show(A))
+	console.log('d=',show(d))
+
+	var LExpected = ndarray(new Float64Array([1,0,0,-0.111,1,0,0.222,-0.606,1]), [3,3])
+	t.assert( ndt.approximatelyEqual(A, LExpected, 1e-3), 'L is correctly calculated' )
+
+	var d_expected = ndarray(new Float64Array([9, 7.889, 3.662]), [3])
+	t.assert( ndt.approximatelyEqual(d, d_expected, 1e-3), 'elements of D are correctly calculated' )
+	t.end()
+})
+
 
 test('returns false if provided non-square matrix',function test(t) {
 
