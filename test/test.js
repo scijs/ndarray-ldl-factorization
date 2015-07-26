@@ -13,6 +13,8 @@ var test = require( 'tape' ),
 	// Module to be tested:
 	ldl = require( '../lib' );
 
+test.createStream().pipe(require('tap-spec')()).pipe(process.stdout);
+
 
 // VARIABLES //
 

@@ -17,7 +17,7 @@
     }
   ],
   "scripts": {
-    "test": "node test/test.js"
+    "test": "node test/test.js | tap-spec"
   },
   "main": "./lib",
   "repository": {
@@ -34,7 +34,6 @@
     "url": "https://github.com/scijs/ndarray-ldl-factorization.git/issues"
   },
   "dependencies": {
-    "cwise": "^1.0.5",
     "ndarray-diagonal": "^1.0.0"
   },
   "devDependencies": {
@@ -42,6 +41,7 @@
     "ndarray-ops": "^1.2.2",
     "ndarray-scratch": "^1.1.1",
     "ndarray-tests": "^1.1.4",
+    "tap-spec": "^4.0.2",
     "tape": "^4.0.0"
   },
   "licenses": [
