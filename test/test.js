@@ -3,15 +3,18 @@
 
 // MODULES //
 
-var ndarray = require('ndarray'),
-	pool = require('ndarray-scratch'),
-	ops = require('ndarray-ops');
+var ndarray = require('ndarray')
+	, pool = require('ndarray-scratch')
+	, show = require('ndarray-show')
+	, ops = require('ndarray-ops');
 
 
  // Expectation library:
 var test = require( 'tape' ),
 	// Module to be tested:
 	ldl = require( './../lib' );
+
+test.createStream().pipe(require('tap-spec')()).pipe(process.stdout);
 
 
 // VARIABLES //
@@ -41,6 +44,8 @@ test( 'should calculate the LDL decomposition of matrix A', function test(t) {
 	var L = pool.zeros( A.shape, A.dtype );
 	var d = pool.zeros( [ A.shape[0] ], A.dtype);
 
+	ops.assigns(L,NaN)
+
 	var isTrue = ldl(A, L, d);
 	t.assert(isTrue, 'ldl returns true');
 
@@ -58,9 +63,10 @@ test('returns false if provided non-square matrix',function test(t) {
 	var A = ndarray(new Float64Array([1,2,2,4,8,6]), [2, 3]);
 	var L = pool.zeros( A.shape, A.dtype );
 	var d = pool.zeros( [ A.shape[0] ], A.dtype);
-	var result = ldl(A, L, d);
 
-	t.notOk(result, 'returns false');
+	t.throws(function() {
+		lt = ldl(A, L, d);
+	}, Error, 'throws an error')
 	t.end();
 });
 
@@ -70,8 +76,8 @@ test('returns false if provided higher-dimensional array (dim > 2)',function tes
 	var A = ndarray(new Float64Array([1,2,3,4,5,6,7,8]), [2,2,2]);
 	var L = pool.zeros( A.shape, A.dtype );
 	var d = pool.zeros( [ A.shape[0] ], A.dtype);
-	var result = ldl(A, L, d);
-
-	t.notOk(result, 'returns false');
+	t.throws(function() {
+		lt = ldl(A, L, d);
+	}, Error, 'throws an error')
 	t.end();
 });

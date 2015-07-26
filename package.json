@@ -41,6 +41,9 @@
   "devDependencies": {
     "browserify": "^10.0.0",
     "coverify": "^1.1.0",
+    "ndarray-show": "^1.1.1",
+    "ndarray-tests": "^1.1.4",
+    "tap-spec": "^4.0.2",
     "tape": "^4.0.0"
   },
   "licenses": [
