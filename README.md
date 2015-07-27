@@ -23,7 +23,11 @@ var ldl = require( 'ndarray-ldl-factorization' );
 
 #### ldl(A, L, d)
 
-This function calculates the LDL decomposition of matrix `A = LDL^t`, where `L` is a lower-unit triangular matrix and `D` is a diagonal matrix. Consult the book *Matrix computations* (3rd ed.) by Gene H. Golub and Charles F. Van Loan for further information. The function takes `L` and `d`, the vector of diagonal elements of `D`, as arguments and changes them during execution. If the function completes without error, it returns `true`, otherwise `false`.
+This function calculates the LDL decomposition of matrix `A = LDL^t`, where `L` is a lower-unit triangular matrix and `D` is a diagonal matrix. Consult the book *Matrix computations* (3rd ed.) by Gene H. Golub and Charles F. Van Loan for further information. The function takes `L` and `d`, the vector of diagonal elements of `D`, as arguments and changes them during execution.
+
+#### ldl(A)
+
+This function calculates the in-place LDL decomposition of matrix `A = LDL^t`. It is equivalent to `ldl( A, A, diag(A) )` using `diag = require('ndarray-diagonal')`.
 
 ## Examples
 
@@ -73,7 +77,7 @@ $ node ./examples/index.js
 
 ### Unit
 
-Unit tests use the [Tape](https://github.com/substack/tape) test framework. To calculate code coverage, the package makes use of [Coverify](https://github.com/substack/coverify).To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Tape](https://github.com/substack/tape) test framework. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ npm test
