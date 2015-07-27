@@ -23,7 +23,7 @@ var ldl = require( 'ndarray-ldl-factorization' );
 
 #### ldl(A, L, d)
 
-This function calculates the LDL decomposition of matrix `A = LDL^t`, where `L` is a lower-unit triangular matrix and `D` is a diagonal matrix. Consult the book *Matrix computations* (3rd ed.) by Gene H. Golub and Charles F. Van Loan for further information. The function takes `L` and `d`, the vector of diagonal elements of `D`, as arguments and changes them during execution.
+This function calculates the LDL decomposition of matrix `A = LDL^t`, where `L` is a lower-unit triangular matrix and `D` is a diagonal matrix. Consult the book *Matrix computations* (3rd ed.) by Gene H. Golub and Charles F. Van Loan for further information. The function takes `L` and `d`, the vector of diagonal elements of `D`, as arguments and changes them during execution. Note in particular the the upper triangular part of `L` is left untouched and so is *not* automatically zeroed.
 
 #### ldl(A)
 
